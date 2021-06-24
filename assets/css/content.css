@@ -1,0 +1,64 @@
+@import 'chartegraphique.css';
+
+.contents{
+	
+	padding-left: 10px;
+	margin-top:var(--header-height);
+	padding-bottom:var(--footer-height);
+}
+
+.decalSidebar{
+	margin-left: clamp(var(--sidebar-min-width),var(--sidebar-width),var(--sidebar-max-width));
+}
+
+.subHelp{
+	margin-right: clamp(var(--sidebar-min-width),var(--sidebar-width),var(--sidebar-max-width));
+}
+
+h2{
+		
+		margin-top: 20;
+		margin-bottom: 20;
+		text-align:center;
+}
+
+.anchor{
+	position: relative;
+	top:-90px; /* header-height * -1 */
+}
+
+
+.reverseImg{
+	transform: scaleX(-1);
+}
+
+
+
+.explication {
+		display:flex;
+		justify-content:left;
+		align-items:center;
+}
+
+.consigne {
+		padding-left: 10px;
+
+}
+
+.presentation {
+		border:solid 2px;
+		border-radius:15px;
+		padding: 10px 10px;
+		background-color: #fff;
+		text-align:center;
+		font-size:x-large;
+}
+
+.tips {
+		border:solid 1px;
+		border-radius:15px;
+		padding: 10px 10px;
+		color: var(--vert-moyen);
+		border-color: #000;
+		visibility: hidden;
+}

@@ -1,0 +1,21 @@
+:root{
+		--vert-degueu: #00AA00;
+		
+		--vert-fonce : #294c26;
+		--vert-moyen : #407b3a;
+		--vert-clair : #54ac47;
+		
+		--violet-fonce : #7d376f;
+		--violet-moyen-1 : #954285;
+		--violet-moyen-2 : #b34d9d;
+		--violet-clair : #c86eac;
+
+		--bleu-ciel: #9BD2CE;
+		
+		--header-height: 90px;
+		--footer-height: 100px;
+		
+		--sidebar-min-width: 150px;
+		--sidebar-width:30%;
+		--sidebar-max-width:250px;
+}

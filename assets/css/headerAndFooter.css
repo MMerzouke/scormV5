@@ -1,0 +1,56 @@
+@import 'chartegraphique.css';
+
+.header{
+	position:fixed;
+	width: 100vw; /* view width 6 -> responsive to screen size */
+	height:var(--header-height);
+	top:0px;
+	z-index: 1;
+	background-color: var(--vert-clair);
+}
+
+.footer{
+	position:fixed;
+	width: 100vw; /* view width 6 -> responsive to screen size */
+	height:var(--footer-height);
+	bottom:5px;
+	z-index: 1;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	background-color: #fff;
+	
+}
+
+.home{
+	background-color: var(--bleu-ciel);
+}
+
+
+.footer a { color : white;
+ }
+
+.form-control-dark {
+  color: #fff;
+  background-color: var(--bs-dark);
+  border-color: var(--bs-gray);
+}
+.form-control-dark:focus {
+  color: #fff;
+  background-color: var(--bs-dark);
+  border-color: #fff;
+  box-shadow: 0 0 0 .25rem rgba(255, 255, 255, .25);
+}
+
+.bi {
+  vertical-align: -.125em;
+  fill: currentColor;
+}
+
+.text-small {
+  font-size: 85%;
+}
+
+.dropdown-toggle {
+  outline: 0;
+}

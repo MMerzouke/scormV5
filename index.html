@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <!-- Bootstrap core CSS -->
+    <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <!-- Custom styles for this template -->
+    <link href="assets/css/headerAndFooter.css" rel="stylesheet"/>
+  	<link href="assets/css/sidebars.css" rel="stylesheet"/>
+  	<link href="assets/css/content.css" rel="stylesheet"/>
+  	<link href="assets/css/drag_and_drop_handler.css" rel="stylesheet"/>
+  	<link href="assets/css/table.css" rel="stylesheet"/>
+  	<link href="assets/css/colorSGRL.css" rel="stylesheet"/>
+    <link href="https://getbootstrap.com/docs/5.0/examples/headers/" rel="canonical"/>
+    <title>maquette Scorm</title>
+  </head>
+
+  <body>
+    <header class="p-3 bg-green text-white header">
+      <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-center ">
+      	  <!-- Logo du SGRL
+      		<div>
+      			<a href="https://www.univ-jfc.fr/grp/serious-game-research-lab-sgrl" target="_blank">
+      				<img src="assets/images/sgrl-121x88.png" style="height: 60px;"/>
+      			</a>
+      		</div>
+      		-->
+      		<h1> Exercice Pratique CONNECT I/O </h1>
+      	  <!-- Bouton "Profil" du header
+          <div>
+            <button type="button" class="btn btn-outline-light profil me-2">Profil</button>
+          </div>
+      	  -->
+        </div>
+      </div>
+    </header>
+
+    <!-- Zone de test SCORM -->
+	<!--
+    <h2 id="note"></h2>
+    <p>
+      Temps total passé sur la session : <span id="time"></span><br>
+    </p>
+    <span id="user"></span> (<span id="userid"></span>)
+	-->
+    <!-- Fin de zone de test SCORM -->
+
+    <div class="contents" id="contents">
+		<div>
+			<h2 id="title"> Un titre d'un exercice </h2>
+			<div id="text">
+				<p id="text"> Aucune lecture de fichier</p>
+			</div>
+			<p ID="exemple"> </p>
+		</div>
+		
+			
+		<div class="compagnonContainer" >
+			<img id="compagnon" class="compagnon reverseImg" src="assets/images/sgrl_compagnon.png" />
+			<div id="tips">
+
+			</div>
+		</div>
+		
+
+	
+	</div>
+
+	
+
+    <footer class="footer">
+    
+
+			<div id="drop-area" class="drop-area">
+				<label class="buttonDragDrop" for="fileElem">Parcourir</label>
+				<p id="indicateurDragAndDrop">Glissez déposez un fichier CONNECTIO</p>
+				<p> </p> <!-- balise vide pour centrer le texte (à améliorer) -->
+				<input class="fileElem" type="file" id="fileElem" accept=".CONNECTIO" onchange='handleFiles(this.files,"exemple");'/>
+		</div>
+
+</footer>
+  </body>
+
+  <script type="application/javascript" src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+  <!-- import de lodash permetant des comparaisons entre object plus facilement -->
+  <script type="application/javascript" src="script/js/fileHandler.js"></script>
+  <script type="application/javascript" src="assets/JSON/data.js"></script>
+  <script type="application/javascript" src="assets/JSON/connecteur_logique.js"></script>
+  <script type="application/javascript" src="assets/JSON/erreur.js"></script>
+  <script type="application/javascript" src="script/js/testXML.js"></script>
+  <script type="application/javascript" src="script/js/fonction_logique.js"></script>
+  <script type="application/javascript" src="CONTENU/compagnon.js"></script>
+
+  
+  <script>//Lecture de l'énoncé
+  
+  //*
+  
+  var textFile;
+  
+  function readFile(fileName){
+		var rawFile = new XMLHttpRequest();
+		
+		rawFile.overrideMimeType("text/plain");
+		
+		rawFile.open("GET", fileName, false);
+		
+		rawFile.onreadystatechange = function () {
+		  if(rawFile.readyState === 4) {
+			if(rawFile.status === 200 || rawFile.status == 0) {
+			  textFile =  rawFile.responseText;
+			}
+		  }
+		}
+		//rawFile.overrideMimeType("text/plain");
+		rawFile.send(null);
+	}
+	
+	readFile("CONTENU/enonce.txt");
+	
+	var allLines = textFile.split(/\r\n|\n/);
+	document.getElementById("title").innerHTML = htmlEntities(allLines.shift());
+	// permet d'enlever la premiere separation
+	allLines.shift();
+	document.getElementById("text").innerHTML = "<p>";
+	allLines.forEach((line) => {
+		document.getElementById("text").innerHTML += htmlEntities(line) + "<br>";
+	});
+	document.getElementById("text").innerHTML += "</p>";
+				
+	readFile("CONTENU/porte_logique.txt");
+	
+	allLines = textFile.split(/\r\n|\n/);
+	var number_of_gates = {};
+	
+	allLines.forEach((line) => {
+		var key = line.split(" : ")[0];
+		var value = line.split(" : ")[1];
+		number_of_gates[key] = value;
+	});
+	
+	sessionStorage.setItem("number_of_gates_required",JSON.stringify(number_of_gates));
+	
+	//*/
+	
+	/*
+    var rawFile = new XMLHttpRequest();
+    rawFile.open("GET", "CONTENU/enonce.txt", false);
+    rawFile.onreadystatechange = function () {
+      if(rawFile.readyState === 4) {
+        if(rawFile.status === 200 || rawFile.status == 0) {
+          var allText = rawFile.responseText;
+          //alert(allText);
+          var allLines = allText.split(/\r\n|\n/);
+    	    document.getElementById("title").innerHTML = htmlEntities(allLines.shift());
+    			// permet d'enlever la premiere separation
+    			allLines.shift();
+    			document.getElementById("text").innerHTML = "<p>";
+    			allLines.forEach((line) => {
+    				document.getElementById("text").innerHTML += htmlEntities(line) + "<br>";
+    			});
+    			document.getElementById("text").innerHTML += "</p>";
+        }
+      }
+    }
+    rawFile.overrideMimeType("text/plain");
+    rawFile.send(null);
+	//*/
+  </script>
+  <script type="text/javascript" language="JavaScript">
+  	var nFindAPITries = 0;
+  	var API = null;
+
+  	function FindAPI(win) {
+  		while ((win.API == null) && (win.parent != null) && (win.parent != win)) {
+  			nFindAPITries++;
+  			if (nFindAPITries > 500) {
+  				console.log("Error in finding API -- too deeply nested.");
+  				return null
+  			}
+  			win = win.parent
+  		}
+  		return win.API
+  	}
+
+  	function init() {
+  		if ((window.parent) && (window.parent != window)) {
+  			API = FindAPI(window.parent)
+  		}
+  		if ((API == null) && (window.opener != null)) {
+  			API = FindAPI(window.opener)
+  		}
+  		if (API == null) {
+  			console.log("No API adapter found")
+  		} else {
+  			API.LMSInitialize("")
+  		}
+  	}
+
+  	function finish() {
+  		if (API != null) {
+  			API.LMSFinish("")
+  		}
+  	}
+
+  	//init SCORM API
+  	init();
+  	let username = 'Anonymous';
+  	let userid = 'user id';
+  	let totalTime = 0;
+    let note = 0;
+
+  	if (API) {
+  		username = API.LMSGetValue('cmi.core.student_name'); //nom de l'utilisateur
+  		userid = API.LMSGetValue('cmi.core.student_id'); //id de l'utilisateur
+  		totalTime = API.LMSGetValue('cmi.core.total_time'); //temps total de la session
+      note = API.LMSGetValue('cmi.core.score.raw'); //score de l'utilisateur
+  	}
+
+
+	/*
+  	document.getElementById("user").innerText = username;
+  	document.getElementById("time").innerText = totalTime;
+    document.getElementById("note").innerText = note;
+    document.getElementById("userid").innerText = userid;
+	*/
+
+  	if (API) {
+  		API.LMSSetValue("cmi.core.lesson_status", "passed"); // -> celui qu'on utilisera pour modifier les valeurs
+  		API.LMSSetValue("cmi.core.score.raw", Math.floor(Math.random() * 100)); //octroie une note au hasard
+  		API.LMSSetValue("cmi.core.score.min", 0);
+  		//API.LMSSetValue("cmi.core.total_time", 180000);
+		
+
+  		finish();
+  	}
+  </script>
+</html>

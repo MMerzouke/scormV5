@@ -1,0 +1,15 @@
+@import 'chartegraphique.css';
+
+.compagnonContainer{
+
+	display: flex;
+	align-items: center;
+	align-content: stretch;
+}
+
+.compagnon{
+
+	/*padding-top:200%;*/
+	width:200px;
+*/
+}

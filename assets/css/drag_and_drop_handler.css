@@ -1,0 +1,45 @@
+@import 'chartegraphique.css';
+
+.drop-area {
+  border: 2px dashed #ccc;
+  border-radius: 20px;
+  width: 90%;
+  height:100%;	
+  font-family: sans-serif;
+  
+  overflow:hidden;
+  
+  display:flex;
+  align-items:center;
+  padding-left:10px;
+  justify-content:space-around;
+  
+}
+.highlight {
+  border-color: purple;
+}
+
+.drop-area p {
+  margin-top: 15;
+}
+
+.buttonDragDrop{
+  
+  padding: 5px;
+  background: var(--violet-moyen-2);
+  color: #ffffff;
+  cursor: pointer;
+  border-radius: 5px;
+  border: 1px solid;
+
+}
+
+
+.buttonDragDrop:hover {
+  background: var(--violet-clair);
+}
+
+
+.fileElem {
+  display: none;
+}

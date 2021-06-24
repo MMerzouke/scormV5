@@ -1,0 +1,12 @@
+Exercice 3 : Monte escalier électrique
+
+Un monte escalier électrique est équipé de deux boutons poussoirs (monostables) permettant de monter ou de descendre.
+Ces boutons doivent être maintenus pour que le moteur tourne.
+Deux capteurs permettent de stopper le moteur lorsque le fauteuil est arrivé en haut ou en bas. En fonction de l’état des différentes entrées, deux ordres peuvent être envoyés au moteur, l’un pour monter et l’autre pour descendre.
+
+On considère dans un premier temps qu’il n’est pas possible d’appuyer sur les deux boutons en même temps.
+Travail à réaliser :
+- R6 : Réalisez les fonctions de commande du monte escalier électrique sur CONNECT-IO. Vous constaterez que les
+SOURCES/BITS sont des interrupteurs, cela n’est pas problématique pour tester vos commandes.
+Vos 4 entrées seront nommées: bouton monter, bouton descendre, capteur haut et capteur bas.
+Vos 2 sorties seront nommées: monter et descendre.

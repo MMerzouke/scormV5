@@ -1,0 +1,18 @@
+var connecteur_logique = {
+  "And2" 			: { "symbol" : "&&",  		"priority" : "2", "minimumEntries" : "2", "needFunction" : false,  "totalEntries" : "2"},
+  "And3" 			: { "symbol" : "&&",  		"priority" : "2", "minimumEntries" : "3", "needFunction" : false,  "totalEntries" : "3"},
+  "Not"  			: { "symbol" : "!",   		"priority" : "3", "minimumEntries" : "1", "needFunction" : false,  "totalEntries" : "1"},
+  "Or2"  			: { "symbol" : "||",  		"priority" : "1", "minimumEntries" : "2", "needFunction" : false,  "totalEntries" : "2"},
+  "Or3"  			: { "symbol" : "||",  		"priority" : "1", "minimumEntries" : "3", "needFunction" : false,  "totalEntries" : "3"},
+  "Xor2" 			: { "symbol" : "XOR", 		"priority" : "0", "minimumEntries" : "2", "needFunction" : true,   "totalEntries" : "2"},
+  "Xor3" 			: { "symbol" : "XOR", 		"priority" : "0", "minimumEntries" : "3", "needFunction" : true,   "totalEntries" : "3"},
+  "Rs"   			: { "symbol" : "RS",  		"priority" : "0", "minimumEntries" : "1", "needFunction" : true ,  "totalEntries" : "2"},
+  "LessThan"   		: { "symbol" : "<",  		"priority" : "2", "minimumEntries" : "2", "needFunction" : false , "totalEntries" : "2"},
+  "LessOrEqual"   	: { "symbol" : "<=",  		"priority" : "2", "minimumEntries" : "2", "needFunction" : false , "totalEntries" : "2"},
+  "Equal"  			: { "symbol" : "==",  		"priority" : "2", "minimumEntries" : "2", "needFunction" : false , "totalEntries" : "2"},
+  "NotEqual"  		: { "symbol" : "!=",  		"priority" : "2", "minimumEntries" : "2", "needFunction" : false , "totalEntries" : "2"},
+  "GreaterThan"   	: { "symbol" : ">",  		"priority" : "2", "minimumEntries" : "2", "needFunction" : false , "totalEntries" : "2"},
+  "GreaterOrEqual"	: { "symbol" : ">=",  		"priority" : "2", "minimumEntries" : "2", "needFunction" : false , "totalEntries" : "2"},
+  "BitToByte" 		: { "symbol" : "bitToByte", "priority" : "0", "minimumEntries" : "1", "needFunction" : true ,  "totalEntries" : "8"},
+  "ByteToBit" 		: { "symbol" : "byteToBit", "priority" : "0", "minimumEntries" : "1", "needFunction" : true ,  "totalEntries" : "1"},
+};
